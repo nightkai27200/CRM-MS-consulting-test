@@ -9,19 +9,11 @@ const app = express();
 
 
 app.use(cors({
-  origin: "http://localhost:5173",
-  credentials: true,
-  methods: [
-    "GET",
-    "POST",
-    "PUT",
-    "DELETE",
-    "OPTIONS"
+  origin: [
+    "http://localhost:5173",
+    "https://mscrm-frontend-test.vercel.app"
   ],
-  allowedHeaders: [
-    "Content-Type",
-    "Authorization"
-  ]
+  credentials: true
 }));
 
 

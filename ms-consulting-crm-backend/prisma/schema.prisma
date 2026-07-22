@@ -1,0 +1,54 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Client {
+  id            String   @id @default(uuid())
+  entreprise    String
+  nom           String
+  prenom        String
+  telephone     String?
+  email         String?
+  secteur       String?
+  statut        String   @default("Client actif")
+  commentaires  String?
+  date_creation DateTime @default(now())
+}
+
+model Prospect {
+  id            String   @id @default(uuid())
+  entreprise    String
+  nom           String
+  prenom        String
+  telephone     String?
+  email         String?
+  secteur       String?
+  source        String?
+  statut        String
+  commentaires  String?
+  date_creation DateTime @default(now())
+}
+
+model User {
+  id            String   @id @default(uuid())
+  nom           String
+  prenom        String
+  email         String   @unique
+  telephone     String?
+  mot_de_passe  String
+  role          Role
+  photo         String?
+  date_creation DateTime @default(now())
+}
+
+enum Role {
+  ADMIN
+  COMMERCIAL
+  CONSULTANT
+  COMPTABILITE
+}

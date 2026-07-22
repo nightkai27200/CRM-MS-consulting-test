@@ -1,5 +1,8 @@
 node_modules
 # Keep environment variables out of version control
-.env
 
+.env
+crm_backup.sql
+crm_backup_clean.sql
+node_modules/
 /generated/prisma
